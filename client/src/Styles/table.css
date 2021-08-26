@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,48 +15,67 @@
   box-sizing: border-box;
 } */
 
-.content-table{
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    width: 100%;
-    max-width: 1280px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    background-color: #fff;
-    overflow-x:auto;
+i {
+  font-size: 16px;
+}
+.track-img {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(21, 21, 21);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.track-img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.content-table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  width: 100%;
+  max-width: 1280px;
+  overflow: hidden;
+  overflow-x: auto;
+  border-radius: 30px;
+}
+.content-table th {
+  border-radius: 50px;
 }
 
 .content-table thead tr {
-    background-color:#a8dadc;
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
+  background-color: #1db954;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  overflow: hidden;
 }
 
-.content-table th, .content-table td{
-    padding: 12px 15px;
+.content-table th,
+.content-table td {
+  padding: 20px 16px;
 }
 
-.content-table tbody tr{
-    border-bottom : 1px solid #dddddd;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
+.content-table tbody tr {
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+tr:hover {
+  background-color: rgb(21, 21, 21);
 }
 
-.content-table tbody tr:hover{
-  color:rgb(183,217,219);
+.content-table tbody tr:hover {
+  color: rgb(183, 217, 219);
 }
 
 .content-table tbody td:hover {
   cursor: pointer;
-  
 }
 
-
-.small-table, .small-table th{
+.small-table,
+.small-table th {
   text-align: center;
   width: 60%;
 }
