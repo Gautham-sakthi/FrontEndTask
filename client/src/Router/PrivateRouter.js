@@ -3,14 +3,16 @@ import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../Provider/Authprovider";
 
 function PrivateRoute({ children, ...rest }) {
-  const { token } = useContext(AuthContext);
+  const { token, initial } = useContext(AuthContext);
 
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        token ? (
+        token && !initial ? (
           children
+        ) : initial ? (
+          <p>Loading</p>
         ) : (
           <Redirect
             to={{

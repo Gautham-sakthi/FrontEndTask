@@ -24,6 +24,7 @@ function AlbumDetail() {
   useEffect(() => {
     const getData = async () => {
       const data = await albumService.albumDetail(id);
+      console.log(data);
       if (data) setalbumDetails(data.data);
     };
     getData();

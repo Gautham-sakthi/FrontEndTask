@@ -46,7 +46,7 @@ const Albums = () => {
   };
 
   return (
-    <div className="container mt-3">
+    <div className="container">
       <button
         className="btn btn-outline-success my-5"
         onClick={() => {

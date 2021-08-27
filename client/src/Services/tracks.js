@@ -9,6 +9,7 @@ const getTracks = () => {
 
 
 const getTrackDetail = (id) => {
+    console.log('add')
     return API({
         method: 'GET',
         url: `/tracks/${id}`,

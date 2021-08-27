@@ -33,7 +33,7 @@ const validate = (values) => {
 
 const LoginForm = () => {
   const history = useHistory();
-  const { setToken } = useContext(AuthContext);
+  const { setToken,setInitial } = useContext(AuthContext);
   const { setLoader } = useContext(LoaderContext);
 
   async function getUserData(values) {
@@ -44,9 +44,10 @@ const LoginForm = () => {
       if (response) {
         setLoader(true);
         setToken(response?.["auth-token"]);
+        setInitial(false);
         localStorage.setItem("token", response?.["auth-token"]);
         setLoader(false);
-        //todo:login issue
+        
         history.push("/tracks");
         toast.dark(response.message);
       } else {

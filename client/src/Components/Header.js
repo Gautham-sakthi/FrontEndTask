@@ -9,11 +9,12 @@ function Header() {
     localStorage.removeItem("token");
     history.push("/");
   };
+  console.log(pathname);
   return (
     <nav className="navbar navbar-dark" style={{ backgroundColor: "#212121" }}>
       <div className="container">
         <Link className="mr-auto navbar-brand" to="/tracks">
-          Brand
+          Music
         </Link>
         <ul className="nav d-flex align-items-center nav-text">
           <li className="nav-item ">
