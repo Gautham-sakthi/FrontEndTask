@@ -1,29 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 .modal-custom-class {
   background-color: rgb(21, 21, 21);
 }
-.login-form {
-  width: 640px;
+.input-form {
+  width: 300px;
+  height: auto;
+}
+.modal-form {
+  max-width: 640px;
   height: auto;
 }
 
-.div,
-.p {
-  color: black;
+.modal-form-title {
+  text-align: center;
 }
 
-.p {
+.input-caption-text {
   text-align: center;
   margin-top: 20px;
   font-size: 16px;
   cursor: pointer;
 }
 
-.form-title {
+.input-form-title {
   text-align: center;
   padding: 25px 0;
 }

@@ -13,7 +13,14 @@ import AuthProvider from "./Provider/Authprovider";
 import LoaderProvider from "./Provider/LoaderProvider";
 import PrivateRoute from "./Router/PrivateRouter";
 
-toast.configure();
+toast.configure({
+  position: "bottom-right",
+  autoClose: 2000,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+});
 function App() {
   return (
     <Router>
