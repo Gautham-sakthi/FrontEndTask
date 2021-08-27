@@ -9,7 +9,6 @@ function Header() {
     localStorage.removeItem("token");
     history.push("/");
   };
-  console.log(pathname);
   return (
     <nav className="navbar navbar-dark" style={{ backgroundColor: "#212121" }}>
       <div className="container">
