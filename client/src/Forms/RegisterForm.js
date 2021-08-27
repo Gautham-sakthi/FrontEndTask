@@ -10,18 +10,18 @@ const validate = (values) => {
   const errors = {};
 
   if (!values.email) {
-    errors.email = "Required";
+    errors.email = "*Email is required";
     isFormValid = false;
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
+    errors.email = "*Invalid email address";
   }
 
   if (!values.password) {
-    errors.password = "Required";
+    errors.password = "*Password is required";
   }
 
   if (!values.name) {
-    errors.name = "Required";
+    errors.name = "*Name is required";
   }
 
   if (errors.email || errors.password || errors.name) {
@@ -59,8 +59,8 @@ const RegisterForm = () => {
   });
   return (
     <div className="container d-flex my-5 justify-content-center">
-      <form onSubmit={formik.handleSubmit} className="login-form">
-        <h1 className="form-title">Register</h1>
+      <form onSubmit={formik.handleSubmit} className="input-form">
+        <h1 className="input-form-title">Register</h1>
         <label>
           <input
             name="name"
@@ -71,6 +71,9 @@ const RegisterForm = () => {
             value={formik.values.name}
           />
         </label>
+        {formik.touched.name && formik.errors.name ? (
+          <div className="text-danger mb-3">{formik.errors.name}</div>
+        ) : null}
         <label>
           <input
             name="email"
@@ -81,6 +84,9 @@ const RegisterForm = () => {
             value={formik.values.email}
           />
         </label>
+        {formik.touched.email && formik.errors.email ? (
+          <div className="text-danger mb-3">{formik.errors.email}</div>
+        ) : null}
         <label>
           <input
             type="password"
@@ -91,11 +97,14 @@ const RegisterForm = () => {
             value={formik.values.password}
           />
         </label>
+        {formik.touched.password && formik.errors.password ? (
+          <div className="text-danger mb-3">{formik.errors.password}</div>
+        ) : null}
         <button type="submit" className="btn btn-success btn-lg btn-block">
           Sign Up
         </button>
         <p
-          className="p text-white"
+          className="input-caption-text text-white"
           onClick={() => {
             history.push("/");
           }}

@@ -37,7 +37,7 @@ const Albums = () => {
     try {
       const data = await albumService.deleteAlbum(id);
       if (data) {
-        toast.success("Album deleted");
+        toast.dark("Album deleted");
         setChange((prev) => !prev);
       }
     } catch (err) {
@@ -69,15 +69,24 @@ const Albums = () => {
                   return (
                     <tr key={album._id}>
                       <td
+                        valign="middle"
                         onClick={() => {
                           history.push(`/albumDetail/${album._id}`);
                         }}
                       >
-                        {album?.name}
+                        <div className="d-flex align-items-center">
+                          <div className="track-img">
+                            <img
+                              src={`https://picsum.photos/60?random=${index}&grayscale`}
+                            />
+                          </div>
+                          <p className="m-0 pl-3">{album?.name}</p>
+                        </div>
+                        <div className="text-muted mt-3">{`List of tracks: ${album.tracks.length}`}</div>
                       </td>
                       <td>
                         <i
-                          className="ml-3 far fa-trash-alt text-danger ml-2"
+                          className="ml-3 far fa-trash-alt  text-white table-action-button"
                           onClick={() => {
                             deleteAlbum(album._id);
                           }}
@@ -90,7 +99,7 @@ const Albums = () => {
           </tbody>
         </table>
       </div>
-      <Modal show={show} dialogClassName="login-form" size="md">
+      <Modal show={show} dialogClassName="modal-form" size="md">
         <AddTrack
           close={setShow}
           change={setChange}

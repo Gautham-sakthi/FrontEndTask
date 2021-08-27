@@ -48,7 +48,7 @@ const LoginForm = () => {
         setLoader(false);
         //todo:login issue
         history.push("/tracks");
-        toast.success(response.message);
+        toast.dark(response.message);
       } else {
         toast.error("response not found");
       }
@@ -59,8 +59,8 @@ const LoginForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "admin@gmail.com",
+      password: "admin123",
     },
     validate,
     onSubmit: (values) => {
@@ -73,8 +73,8 @@ const LoginForm = () => {
   });
   return (
     <div className="container d-flex my-5 justify-content-center">
-      <form onSubmit={formik.handleSubmit} className="login-form">
-        <h1 className="form-title">Log In</h1>
+      <form onSubmit={formik.handleSubmit} className="input-form">
+        <h1 className="input-form-title">Log In</h1>
         <label>
           <input
             name="email"
@@ -87,7 +87,7 @@ const LoginForm = () => {
           />
         </label>
         {formik.touched.email && formik.errors.email ? (
-          <div className="text-danger">{formik.errors.email}</div>
+          <div className="text-danger mb-3">{formik.errors.email}</div>
         ) : null}
 
         <label>
@@ -102,13 +102,13 @@ const LoginForm = () => {
           />
         </label>
         {formik.touched.password && formik.errors.password ? (
-          <div className="text-danger">{formik.errors.password}</div>
+          <div className="text-danger mb-3">{formik.errors.password}</div>
         ) : null}
         <button type="submit" className="btn btn-success btn-lg btn-block">
           Login
         </button>
         <p
-          className="p text-white"
+          className="input-caption-text text-white"
           onClick={() => {
             history.push("/register");
           }}

@@ -24,7 +24,7 @@ const Tracks = () => {
       setLoader(true);
       const result = await trackService.removeTrack(id);
       if (result) {
-        toast.success(result.message);
+        toast.dark(result.message);
         setChange((prev) => !prev);
         setLoader(false);
       }
@@ -86,7 +86,7 @@ const Tracks = () => {
             <tr>
               <th>Title</th>
               <th>Artist</th>
-              <th>Length</th>
+              <th>Duration</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -111,13 +111,13 @@ const Tracks = () => {
                         <tr>
                           <td>
                             <i
-                              className="far fa-edit text-white"
+                              className="far fa-edit text-white table-action-button"
                               onClick={() => handleEditShow(track._id)}
                             ></i>
                           </td>
                           <td>
                             <i
-                              className="ml-3 far fa-trash-alt text-white ml-2"
+                              className="ml-3 far fa-trash-alt text-white ml-2 table-action-button"
                               onClick={() => removeTrack(track._id)}
                             ></i>
                           </td>
@@ -133,7 +133,7 @@ const Tracks = () => {
       <Modal
         show={showEdit}
         onHide={() => handleEditClose()}
-        dialogClassName="login-form"
+        dialogClassName="modal-form"
         size="md"
       >
         <TrackForm
@@ -148,9 +148,8 @@ const Tracks = () => {
       <Modal
         show={showAdd}
         onHide={() => handleAddClose()}
-        dialogClassName="login-form"
+        dialogClassName="modal-form"
         size="md"
-        
       >
         <TrackForm
           type="add"

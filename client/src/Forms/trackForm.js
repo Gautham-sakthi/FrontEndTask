@@ -6,19 +6,19 @@ import { trackService } from "../Services/tracks";
 const validate = (values) => {
   const errors = {};
   if (!values.title) {
-    errors.title = "*Required";
+    errors.title = "*Title is required";
   }
 
   if (!values.artist) {
-    errors.artist = "*Required";
+    errors.artist = "*Artist name is required";
   }
 
   if (values.minutes <= 0) {
-    errors.minutes = "*Required";
+    errors.minutes = "*Minute cannot be negative";
   }
 
   if (values.seconds <= 0) {
-    errors.seconds = "*Required";
+    errors.seconds = "*Seconds cannot be negative";
   }
 
   return errors;
@@ -75,7 +75,7 @@ const TrackForm = ({ title, type, trackDetail, close, setChange }) => {
       const data = await trackService.createTrack(payload);
 
       if (data) {
-        toast.success(data.message);
+        toast.dark(data.message);
         close();
         setChange((prev) => !prev);
       }
@@ -101,7 +101,7 @@ const TrackForm = ({ title, type, trackDetail, close, setChange }) => {
     try {
       const data = await trackService.updateTrack(trackDetail._id, payload);
       if (data) {
-        toast.success(data.message);
+        toast.dark(data.message);
         close();
         setChange((prev) => !prev);
       }
@@ -113,8 +113,8 @@ const TrackForm = ({ title, type, trackDetail, close, setChange }) => {
   };
   return (
     <div className="container d-flex px-5 py-3 justify-content-center modal-custom-class">
-      <form onSubmit={formik.handleSubmit} className="login-form">
-        <h1 className="form-title my-3">{title}</h1>
+      <form onSubmit={formik.handleSubmit}>
+        <h1 className="my-3 modal-form-title">{title}</h1>
         <label htmlFor="title">
           Title
           <input
@@ -126,8 +126,8 @@ const TrackForm = ({ title, type, trackDetail, close, setChange }) => {
             value={formik.values.title}
           />
         </label>
-        {formik.errors.title ? (
-          <div className="text-danger">{formik.errors.title}</div>
+        {formik.touched.title && formik.errors.title ? (
+          <div className="text-danger mb-3">{formik.errors.title}</div>
         ) : null}
 
         <label className="mt-2" htmlFor="artist">
@@ -141,8 +141,8 @@ const TrackForm = ({ title, type, trackDetail, close, setChange }) => {
             value={formik.values.artist}
           />
         </label>
-        {formik.errors.artist ? (
-          <div className="text-danger">{formik.errors.artist}</div>
+        {formik.touched.artist && formik.errors.artist ? (
+          <div className="text-danger mb-3">{formik.errors.artist}</div>
         ) : null}
 
         <label className="mt-2" htmlFor="minutes">
@@ -157,8 +157,8 @@ const TrackForm = ({ title, type, trackDetail, close, setChange }) => {
             value={formik.values.minutes}
           />
         </label>
-        {formik.errors.minutes ? (
-          <div className="text-danger">{formik.errors.minutes}</div>
+        {formik.touched.minutes && formik.errors.minutes ? (
+          <div className="text-danger mb-3">{formik.errors.minutes}</div>
         ) : null}
 
         <label className="mt-2" htmlFor="seconds">
@@ -175,8 +175,8 @@ const TrackForm = ({ title, type, trackDetail, close, setChange }) => {
           />
         </label>
 
-        {formik.errors.seconds ? (
-          <div className="text-danger">{formik.errors.seconds}</div>
+        {formik.touched.seconds && formik.errors.seconds ? (
+          <div className="text-danger mb-3">{formik.errors.seconds}</div>
         ) : null}
         <div className="row d-flex my-5 justify-content-center">
           <button type="submit" className="btn btn-lg btn-outline-success mr-3">

@@ -1,37 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* .new-container {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  background-color: #f1faee;
-  box-sizing: border-box;
-} */
-
-i {
-  font-size: 16px;
-}
-.track-img {
-  width: 60px;
-  height: 60px;
-  background-color: rgb(21, 21, 21);
-  border-radius: 5px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-}
-.track-img img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
 .content-table {
   border-collapse: collapse;
   font-size: 0.9em;
@@ -41,6 +7,7 @@ i {
   overflow-x: auto;
   border-radius: 30px;
 }
+
 .content-table th {
   border-radius: 50px;
 }
@@ -62,20 +29,32 @@ i {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
 }
-tr:hover {
-  background-color: rgb(21, 21, 21);
-}
 
 .content-table tbody tr:hover {
   color: rgb(183, 217, 219);
+  background-color: rgb(21, 21, 21);
 }
 
 .content-table tbody td:hover {
   cursor: pointer;
 }
 
-.small-table,
-.small-table th {
-  text-align: center;
-  width: 60%;
+.table-action-button {
+  font-size: 16px;
+}
+
+.track-img {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(21, 21, 21);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.track-img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
